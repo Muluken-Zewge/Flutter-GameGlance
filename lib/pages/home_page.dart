@@ -18,7 +18,11 @@ class _HomePageState extends State<HomePage> {
     _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
-        children: [_featuredGamesWidget(), _gradientBoxWidget()],
+        children: [
+          _featuredGamesWidget(),
+          _gradientBoxWidget(),
+          _topLayerWidget()
+        ],
       ),
     );
   }
@@ -56,6 +60,52 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           )),
+    );
+  }
+
+  Widget _topLayerWidget() {
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: _deviceWidth * 0.05, vertical: _deviceHeight * 0.005),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [_topBarWidget()],
+      ),
+    );
+  }
+
+  Widget _topBarWidget() {
+    return SizedBox(
+      height: _deviceHeight * 0.13,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          const Icon(
+            Icons.menu,
+            size: 30,
+            color: Colors.white,
+          ),
+          Row(
+            children: [
+              const Icon(
+                Icons.search,
+                size: 30,
+                color: Colors.white,
+              ),
+              SizedBox(width: _deviceWidth * 0.03),
+              const Icon(
+                Icons.notifications_none,
+                size: 30,
+                color: Colors.white,
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
