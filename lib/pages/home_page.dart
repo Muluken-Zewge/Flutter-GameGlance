@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gameglance/data.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,6 +12,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   dynamic _deviceHeight;
   dynamic _deviceWidth;
+  late int selectedGameIndex;
+  final _pageController = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    selectedGameIndex = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +41,12 @@ class _HomePageState extends State<HomePage> {
         height: _deviceHeight * 0.5,
         width: _deviceWidth,
         child: PageView(
+          controller: _pageController,
+          onPageChanged: (index) {
+            setState(() {
+              selectedGameIndex = index;
+            });
+          },
           scrollDirection: Axis.horizontal,
           children: featuredGames.map((game) {
             return Container(
@@ -71,7 +86,13 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [_topBarWidget()],
+        children: [
+          _topBarWidget(),
+          SizedBox(
+            height: _deviceHeight * 0.13,
+          ),
+          _featuredGamesInfoWidget()
+        ],
       ),
     );
   }
@@ -103,6 +124,38 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               )
             ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _featuredGamesInfoWidget() {
+    return SizedBox(
+      height: _deviceHeight * 0.15,
+      width: _deviceWidth,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Text(
+            featuredGames[selectedGameIndex].title,
+            style:
+                TextStyle(color: Colors.white, fontSize: _deviceHeight * 0.04),
+            maxLines: 2,
+          ),
+          SizedBox(
+            height: _deviceHeight * 0.01,
+          ),
+          SmoothPageIndicator(
+            controller: _pageController,
+            count: featuredGames.length,
+            effect: const SlideEffect(
+                activeDotColor: Colors.green,
+                dotHeight: 8,
+                dotWidth: 8,
+                radius: 8),
           )
         ],
       ),
