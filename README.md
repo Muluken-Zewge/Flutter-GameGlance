@@ -5,6 +5,6 @@
 ## Screenshot
 
 <p align="center">
-<img src="assets/images/screenshots/Screenshot_1.jpg" alt="App Screenshot" width="45%" />
-<img src="assets/images/screenshots/Screenshot_2.jpg" alt="App Screenshot" width="45%" />
+<img src="assets/images/screenshots/Screenshot_1.jpg" alt="App Screenshot" width="40%" />
+<img src="assets/images/screenshots/Screenshot_2.jpg" alt="App Screenshot" width="40%" />
 </p>
