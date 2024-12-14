@@ -61,14 +61,16 @@ List<Game> games2 = [
   ),
   Game(
     "The Last of Us Part II",
-    GameImage("https://mvpo.us/img/P6253.jpg", ""),
+    GameImage(
+        "https://r4.wallpaperflare.com/wallpaper/189/301/175/the-last-of-us-2-the-last-of-us-the-last-of-us-part-ii-ellie-play-station-hd-wallpaper-8d713cd659f8ff2b84fda20d7dc2afab.jpg",
+        ""),
     "",
     "Naughty Dog",
   ),
   Game(
     "Sekiro: Shadows Die Twice",
     GameImage(
-        "https://onlysp.escapistmagazine.com/wp-content/uploads/2019/03/Sekiro-Shadows-Die-Twice-logo-art.jpg",
+        "https://c4.wallpaperflare.com/wallpaper/310/302/397/sekiro-shadows-die-twice-samurai-video-games-video-game-art-watermarked-hd-wallpaper-preview.jpg",
         ""),
     "",
     "From Software",
@@ -76,7 +78,7 @@ List<Game> games2 = [
   Game(
     "Just Cause 4",
     GameImage(
-        "https://s3.gaming-cdn.com/images/products/2666/orig/just-cause-4-cover.jpg",
+        "https://c4.wallpaperflare.com/wallpaper/958/433/89/8k-just-cause-4-e3-2018-poster-wallpaper-preview.jpg",
         ""),
     "",
     "Avalanche Studios",

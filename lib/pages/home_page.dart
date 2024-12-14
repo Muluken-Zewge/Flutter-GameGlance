@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gameglance/data.dart';
+import 'package:flutter_gameglance/widgets/scrollable_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           _featuredGamesWidget(),
           _gradientBoxWidget(),
-          _topLayerWidget()
+          _topLayerWidget(),
         ],
       ),
     );
@@ -80,8 +81,8 @@ class _HomePageState extends State<HomePage> {
 
   Widget _topLayerWidget() {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: _deviceWidth * 0.05, vertical: _deviceHeight * 0.005),
+      padding: EdgeInsets.fromLTRB(
+          _deviceWidth * 0.05, _deviceHeight * 0.005, _deviceWidth * 0.05, 0.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
@@ -91,7 +92,23 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: _deviceHeight * 0.13,
           ),
-          _featuredGamesInfoWidget()
+          _featuredGamesInfoWidget(),
+          const SizedBox(
+            height: 10,
+          ),
+          ScrollableWidget(
+            height: _deviceHeight * 0.24,
+            width: _deviceWidth,
+            showTitle: true,
+            games: games,
+          ),
+          _featuredGameBannerWidget(),
+          ScrollableWidget(
+            height: _deviceHeight * 0.19,
+            width: _deviceWidth,
+            showTitle: false,
+            games: games2,
+          )
         ],
       ),
     );
@@ -159,6 +176,18 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+    );
+  }
+
+  Widget _featuredGameBannerWidget() {
+    return Container(
+      height: _deviceHeight * 0.13,
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          image: DecorationImage(
+              fit: BoxFit.cover,
+              image: NetworkImage(featuredGames[2].coverImage.url))),
     );
   }
 }
