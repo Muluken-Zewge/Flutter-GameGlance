@@ -4,4 +4,7 @@
 
 ## Screenshot
 
-![App Screenshot](assets/images/screenshots/Screenshot_1.jpg) ![App Screenshot](assets/images/screenshots/Screenshot_2.jpg)
+<p align="center">
+<img src="assets/images/screenshots/Screenshot_1.jpg" alt="App Screenshot" width="50%" />
+<img src="assets/images/screenshots/Screenshot_2.jpg" alt="App Screenshot" width="50%" />
+</p>
